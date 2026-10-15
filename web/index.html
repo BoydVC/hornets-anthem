@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hornets Anthem Release · Buzz Like Thunder</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <canvas id="logo" width="88" height="88" aria-hidden="true"></canvas>
+    <div>
+      <div class="brand-kicker">Green Hornets 12U · Official Release</div>
+      <h1>Hornets Anthem Release</h1>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="release">Release</button>
+    <button class="tab" data-tab="video">Lyric Video</button>
+    <button class="tab" data-tab="lyrics">Lyrics</button>
+    <button class="tab" data-tab="studio">Studio</button>
+    <button class="tab" data-tab="share">Share Card</button>
+  </nav>
+</header>
+
+<main>
+  <!-- RELEASE -->
+  <section class="panel active" id="panel-release">
+    <div class="release-grid">
+      <div class="cover-wrap">
+        <canvas id="cover" width="1000" height="1000"></canvas>
+        <div class="cover-actions">
+          <button class="btn" id="btn-cover-png">⬇ Cover PNG</button>
+          <button class="btn ghost" id="btn-cover-remix">🎲 Remix colors</button>
+        </div>
+      </div>
+      <div class="release-info">
+        <div class="pill">Single · Out now on the sideline</div>
+        <h2 class="song-title">Buzz Like Thunder</h2>
+        <div class="artist">The Green Hornets 12U</div>
+        <div class="meta">
+          <span><b id="meta-bpm">128</b> BPM</span>
+          <span>Key of <b>G major</b></span>
+          <span><b id="meta-dur">1:15</b></span>
+          <span><b>5</b> synth stems</span>
+        </div>
+        <div class="big-controls">
+          <button class="play-big" id="btn-play-big" aria-label="Play">▶</button>
+          <div>
+            <div class="now-label">Now playing</div>
+            <div class="now-track" id="now-track">1 · Buzz Like Thunder (Anthem Mix)</div>
+            <div class="render-status" id="render-status">Track renders in your browser — no audio files needed.</div>
+          </div>
+        </div>
+        <ol class="tracklist" id="tracklist"></ol>
+        <div class="row-actions">
+          <button class="btn" id="btn-wav">⬇ Download WAV</button>
+          <button class="btn ghost" data-goto="video">🎬 Watch lyric video</button>
+          <button class="btn ghost" data-goto="lyrics">🖨 Lyric sheet</button>
+        </div>
+        <div class="liner">
+          <h3>Liner notes</h3>
+          <p>An original sideline anthem for the Green Hornets 12U. Every sound — the kick drum, the bass, the hornet buzz — is synthesized live by your browser from code. Sing the chorus on the bus, blast it at warm-ups, and yell <em>HORNETS!</em> on three.</p>
+          <p class="credits">Words &amp; music: original, written for the team · Production: TokenMax Studio · Cover: generated art · Family friendly · Sideline approved</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="panel" id="panel-video">
+    <div class="video-shell">
+      <canvas id="video" width="1280" height="720"></canvas>
+      <div class="video-controls">
+        <button class="btn" id="btn-video-play">▶ Play</button>
+        <button class="btn ghost" id="btn-video-restart">⟲ From top</button>
+        <button class="btn ghost" id="btn-video-chorus">★ Jump to chorus</button>
+        <label class="chk"><input type="checkbox" id="chk-loop" checked> Loop</label>
+        <button class="btn ghost" id="btn-record">⏺ Record .webm</button>
+        <span class="rec-status" id="rec-status"></span>
+      </div>
+      <p class="hint">Karaoke mode: words light up gold as the guide melody sings them. Click the video to play/pause, or its gold progress bar to seek.</p>
+    </div>
+  </section>
+
+  <!-- LYRICS -->
+  <section class="panel" id="panel-lyrics">
+    <div class="lyrics-toolbar">
+      <button class="btn" id="btn-print">🖨 Print lyric sheet</button>
+      <label class="chk"><input type="checkbox" id="chk-chords" checked> Show chords</label>
+    </div>
+    <article class="sheet" id="lyric-sheet">
+      <div class="sheet-head">
+        <canvas id="sheet-logo" width="120" height="120"></canvas>
+        <div>
+          <div class="sheet-kicker">Green Hornets 12U · Team Anthem</div>
+          <h2>Buzz Like Thunder</h2>
+          <div class="sheet-meta">128 BPM · G major · sing it loud, sing it proud</div>
+        </div>
+      </div>
+      <div class="sheet-body" id="sheet-body"></div>
+      <div class="sheet-foot">Original words &amp; music written for the Green Hornets 12U. Copy it, print it, sing it on the bus.</div>
+    </article>
+  </section>
+
+  <!-- STUDIO -->
+  <section class="panel" id="panel-studio">
+    <div class="studio-grid">
+      <div class="card">
+        <h3>Mixer</h3>
+        <p class="muted">Five stems, all synthesized in WebAudio. Changes apply live and to the WAV export.</p>
+        <div id="mixer"></div>
+        <div class="row-actions">
+          <button class="btn ghost" data-preset="anthem">Anthem Mix</button>
+          <button class="btn ghost" data-preset="instrumental">Instrumental</button>
+          <button class="btn ghost" data-preset="chant">Sideline Chant</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Arrangement</h3>
+        <div id="arrangement"></div>
+        <h3 style="margin-top:18px">Pattern view</h3>
+        <canvas id="pattern" width="720" height="250"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHARE -->
+  <section class="panel" id="panel-share">
+    <div class="share-grid">
+      <canvas id="share" width="1080" height="1350"></canvas>
+      <div class="card">
+        <h3>Share card</h3>
+        <p class="muted">A portrait card for the team group chat: cover, chorus, and the chant. Pick a chorus line to feature.</p>
+        <div id="share-lines"></div>
+        <div class="row-actions">
+          <button class="btn" id="btn-share-png">⬇ Share card PNG</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="player" id="player">
+  <button class="pbtn" id="btn-play" aria-label="Play">▶</button>
+  <button class="pbtn" id="btn-mute" aria-label="Mute">🔊</button>
+  <span class="time" id="time-cur">0:00</span>
+  <div class="progress" id="progress"><div class="progress-fill" id="progress-fill"></div><div class="progress-marks" id="progress-marks"></div></div>
+  <span class="time" id="time-dur">1:15</span>
+  <div class="now-line" id="now-line">Press play — the Hornets are warming up.</div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
