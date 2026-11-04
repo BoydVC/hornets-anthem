@@ -1,6 +1,6 @@
 # Hornets Anthem Release — "Buzz Like Thunder"
 
-A finished, offline "music release" for the **Green Hornets 12U** (Vic's soccer team):
+A finished, offline "music release" for the **Blue Comets 12U** (Sam's soccer team):
 original anthem lyrics, a WebAudio-synthesized track, generated cover art, a karaoke lyric video,
 a printable lyric sheet and a share card — all in one self-contained HTML file. No audio files,
 no CDN, no network.

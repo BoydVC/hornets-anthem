@@ -36,7 +36,7 @@ def main():
     check(not re.search(r"\.(mp3|ogg|wav|m4a)[\"']", html), "no external audio files referenced")
     check("OfflineAudioContext" in html and "createOscillator" in html, "audio synthesized with WebAudio")
     check("__HA__" in html, "test API __HA__ present")
-    check("Buzz Like Thunder" in html and "Green Hornets rise" in html, "original anthem lyrics embedded")
+    check("Buzz Like Thunder" in html and "Blue Comets rise" in html, "original anthem lyrics embedded")
 
     port = free_port()
     env = dict(os.environ, HA_PORT=str(port))
