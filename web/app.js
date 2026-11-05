@@ -610,9 +610,9 @@ function drawCover(c, W = 1000, palIdx = coverPal) {
   drawHornet(c, 470, 430, 2.0, 0.37, false, p);
   // title block
   c.textAlign = "center"; c.textBaseline = "alphabetic";
-  c.fillStyle = p.ink; fitText(c, "GREEN HORNETS", 880, 128);
+  c.fillStyle = p.ink; fitText(c, "BLUE COMETS", 880, 128);
   c.shadowColor = "rgba(0,0,0,0.6)"; c.shadowOffsetY = 6; c.shadowBlur = 0;
-  c.fillText("GREEN HORNETS", 500, 150);
+  c.fillText("BLUE COMETS", 500, 150);
   c.font = `700 30px ${BODY}`; c.fillStyle = p.gold; c.shadowOffsetY = 3;
   c.fillText("1 2 U   ·   S O C C E R   ·   T E A M   A N T H E M", 500, 198);
   // bottom banner
