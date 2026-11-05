@@ -12,7 +12,7 @@ const CHORDS = {
   Em: { root: 40, pad: [55, 59, 64], mel: [64, 67, 71, 76, 79] },
   C:  { root: 36, pad: [55, 60, 64], mel: [64, 67, 72, 76, 79] },
 };
-// Original lyrics, written for the Green Hornets 12U.
+// Original lyrics, written for the Blue Comets 12U.
 const SECTIONS = [
   { id: "intro", kind: "intro", name: "Intro", bars: 4, chords: ["G", "D", "Em", "C"],
     lines: [{ bar: 2, bars: 2, text: "Green and gold — here we go!" }] },
@@ -25,7 +25,7 @@ const SECTIONS = [
     ] },
   { id: "c1", kind: "chorus", name: "Chorus", bars: 8, chords: ["G", "D", "Em", "C", "G", "D", "C", "D"],
     lines: [
-      { bar: 0, bars: 2, text: "Buzz, buzz! Green Hornets rise," },
+      { bar: 0, bars: 2, text: "Buzz, buzz! Blue Comets rise," },
       { bar: 2, bars: 2, text: "Gold on the jersey, fire in our eyes," },
       { bar: 4, bars: 2, text: "Every pass, every run, every goal we score —" },
       { bar: 6, bars: 2, text: "We're the Hornets, hear the swarm ROAR!" },
@@ -39,7 +39,7 @@ const SECTIONS = [
     ] },
   { id: "c2", kind: "chorus", name: "Chorus", bars: 8, chords: ["G", "D", "Em", "C", "G", "D", "C", "D"],
     lines: [
-      { bar: 0, bars: 2, text: "Buzz, buzz! Green Hornets rise," },
+      { bar: 0, bars: 2, text: "Buzz, buzz! Blue Comets rise," },
       { bar: 2, bars: 2, text: "Gold on the jersey, fire in our eyes," },
       { bar: 4, bars: 2, text: "Every pass, every run, every goal we score —" },
       { bar: 6, bars: 2, text: "We're the Hornets, hear the swarm ROAR!" },
@@ -610,9 +610,9 @@ function drawCover(c, W = 1000, palIdx = coverPal) {
   drawHornet(c, 470, 430, 2.0, 0.37, false, p);
   // title block
   c.textAlign = "center"; c.textBaseline = "alphabetic";
-  c.fillStyle = p.ink; fitText(c, "GREEN HORNETS", 880, 128);
+  c.fillStyle = p.ink; fitText(c, "BLUE COMETS", 880, 128);
   c.shadowColor = "rgba(0,0,0,0.6)"; c.shadowOffsetY = 6; c.shadowBlur = 0;
-  c.fillText("GREEN HORNETS", 500, 150);
+  c.fillText("BLUE COMETS", 500, 150);
   c.font = `700 30px ${BODY}`; c.fillStyle = p.gold; c.shadowOffsetY = 3;
   c.fillText("1 2 U   ·   S O C C E R   ·   T E A M   A N T H E M", 500, 198);
   // bottom banner
@@ -690,7 +690,7 @@ function drawVideo(c, t) {
   const barNo = Math.floor(t / BAR) + 1; c.fillText(`bar ${barNo} / ${TOTAL_BARS}`, 40, 74);
   c.textAlign = "right"; c.fillStyle = "rgba(255,255,255,0.85)"; c.font = `400 26px ${DISPLAY}`;
   c.fillText("BUZZ LIKE THUNDER", W - 40, 50);
-  c.font = `600 15px ${BODY}`; c.fillStyle = "#f5c518"; c.fillText("GREEN HORNETS 12U · OFFICIAL LYRIC VIDEO", W - 40, 74);
+  c.font = `600 15px ${BODY}`; c.fillStyle = "#f5c518"; c.fillText("BLUE COMETS 12U · OFFICIAL LYRIC VIDEO", W - 40, 74);
 
   const L = lineAt(t);
   if (t < 2 * BAR) {
@@ -699,7 +699,7 @@ function drawVideo(c, t) {
     c.save(); c.globalAlpha = Math.max(0, fade); c.translate(W / 2, 360); const sc = 0.9 + 0.1 * k; c.scale(sc, sc);
     c.textAlign = "center"; c.fillStyle = "#f5c518"; c.shadowColor = "rgba(245,197,24,0.6)"; c.shadowBlur = 30;
     c.font = `400 120px ${DISPLAY}`; c.fillText("BUZZ LIKE THUNDER", 0, 20);
-    c.shadowBlur = 0; c.fillStyle = "#fff"; c.font = `700 28px ${BODY}`; c.fillText("The Green Hornets 12U", 0, 76);
+    c.shadowBlur = 0; c.fillStyle = "#fff"; c.font = `700 28px ${BODY}`; c.fillText("The Blue Comets 12U", 0, 76);
     c.restore();
     if (L.next) drawUpNext(c, L.next, 520, 0.55);
   } else if (t >= DUR - BAR) {
@@ -771,7 +771,7 @@ function drawShare(c, lineText) {
   ql.forEach((l, i) => c.fillText(l, W / 2, qy + i * 54));
   const fy = qy + (ql.length - 1) * 54;
   c.fillStyle = "rgba(255,255,255,0.8)"; c.font = `600 26px ${BODY}`;
-  c.fillText("The Green Hornets 12U · 128 BPM · 1:15", W / 2, fy + 82);
+  c.fillText("The Blue Comets 12U · 128 BPM · 1:15", W / 2, fy + 82);
   c.fillStyle = "#f5c518"; c.fillRect(W / 2 - 60, fy + 112, 120, 4);
   c.font = `400 40px ${DISPLAY}`;
   c.fillText("HORNETS ON THREE — 1 · 2 · 3 — HORNETS!", W / 2, fy + 172);
@@ -874,7 +874,7 @@ function buildShareLines() {
     box.appendChild(lab);
   });
 }
-let shareLine = "Buzz, buzz! Green Hornets rise,";
+let shareLine = "Buzz, buzz! Blue Comets rise,";
 function redrawShare() { drawShare($("#share").getContext("2d"), shareLine); }
 function redrawCover() { const c = $("#cover").getContext("2d"); drawCover(c, 1000, coverPal); }
 
@@ -950,7 +950,7 @@ function init() {
   $("#btn-record").onclick = () => (REC.active ? stopRecording() : startRecording());
   $("#progress").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); seek(((e.clientX - r.left) / r.width) * DUR); };
   $("#video").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); const y = (e.clientY - r.top) / r.height; if (y > 0.93) seek(((e.clientX - r.left) / r.width - 40 / 1280) / (1200 / 1280) * DUR); else toggle(); };
-  $("#btn-cover-png").onclick = () => $("#cover").toBlob((b) => download(b, "green-hornets-buzz-like-thunder-cover.png"), "image/png");
+  $("#btn-cover-png").onclick = () => $("#cover").toBlob((b) => download(b, "blue-comets-buzz-like-thunder-cover.png"), "image/png");
   $("#btn-cover-remix").onclick = () => { coverPal = (coverPal + 1) % PALETTES.length; redrawCover(); };
   $("#btn-share-png").onclick = () => $("#share").toBlob((b) => download(b, "buzz-like-thunder-share-card.png"), "image/png");
   $("#btn-wav").onclick = async () => {
